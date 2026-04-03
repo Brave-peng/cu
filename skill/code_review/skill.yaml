@@ -1,0 +1,3 @@
+name: code-review
+description: 代码审查与审核助手 - 安全、正确性、性能、规范检查
+instructions: instructions.md

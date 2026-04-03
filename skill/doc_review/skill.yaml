@@ -1,0 +1,3 @@
+name: doc-review
+description: 文档审查助手 - 审核 CLAUDE.md、README、设计文档的准确性和一致性
+instructions: instructions.md
