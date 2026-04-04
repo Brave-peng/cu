@@ -1,0 +1,34 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/__pycache__": true,
+    // "**/*.db": true,
+    // "**/*.sqlite": true,
+    // "**/*.sqlite3": true,
+    // ".githooks": true,
+    ".venv": true,
+    ".python-version": true,
+    "feishu-cli-guide-clean.md": true,
+    // "scripts": true,
+    "skill": true
+  },
+  "search.exclude": {
+    "**/.git": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/__pycache__": true,
+    "**/*.db": true,
+    "**/*.sqlite": true,
+    "**/*.sqlite3": true,
+    ".venv": true
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "pyproject.toml": ".python-version",
+    "README.md": "claude.md, plan.md"
+  }
+}

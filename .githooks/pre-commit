@@ -1,0 +1,14 @@
+#!/bin/sh
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$REPO_ROOT/scripts/git-hooks/pre-commit-review.ps1"
+STATUS=$?
+
+if [ "$STATUS" -ne 0 ]; then
+  echo "Codex pre-commit review failed."
+  echo "Use --no-verify only when you intentionally want to bypass this check."
+  exit "$STATUS"
+fi
+
+exit 0
