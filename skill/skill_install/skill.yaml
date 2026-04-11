@@ -1,0 +1,3 @@
+name: skill-install
+description: Skill 安装助手 - 从 GitHub skill 仓库下载完整 skill 文件夹并安装到本地 Agent 或 Claude 环境
+instructions: instructions.md
