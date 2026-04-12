@@ -4,13 +4,14 @@
 
 - `market_daily` 的字段定义、校验规则和交付标准已经在 [market-daily-stage1.md](market-daily-stage1.md) 固化
 - 开发规范已经在 [../claude.md](../claude.md) 固化
-- 当前仓库还没有 `FastAPI` / `SQLModel` / `Alembic` 的项目骨架
-- 当前仓库也还没有看到已落地的数据拉取 API 地址、请求参数或鉴权方式
+- 当前仓库已经有 `SQLModel` 表模型、schema、SQLite engine 初始化和 `market_daily` 入库服务
+- 当前仓库已经有 Typer 抓取命令，通过 AKShare `get_futures_daily` 拉取 SHFE 日线
+- 当前仓库还没有 `FastAPI` / `Alembic` 项目骨架
 
 结论：
 
-- 现在最合理的顺序不是直接堆业务代码
-- 而是先做“可验证的最小链路”：`API 探针 -> 原始响应保存 -> 字段映射 -> SQLite 落库`
+- 当前最小链路已推进到：`AKShare 拉取 -> 字段映射 -> SQLite 落库`
+- 下一步更适合补查询服务、查询 API 和基础校验，而不是扩散到复杂报表
 
 ## 阶段一目标
 
@@ -30,12 +31,11 @@ app/
       market_daily.py
   cli/
     __init__.py
-    main.py
+    market_crawler.py
   core/
     config.py
     logging.py
   db/
-    engine.py
     session.py
   models/
     market_daily.py

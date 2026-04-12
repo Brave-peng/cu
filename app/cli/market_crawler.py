@@ -1,8 +1,9 @@
 """市场日线抓取命令。
 
-当前文件只做两件事：
+当前文件只做三件事：
 1. 从 AKShare 抓取上期所日线数据。
-2. 过滤并规范化为 `market_daily` 结构后打印到终端。
+2. 过滤并规范化为 `market_daily` 结构。
+3. 可选写入本地数据库并打印样例。
 """
 
 from __future__ import annotations
@@ -11,9 +12,13 @@ import json
 from datetime import date, datetime
 from typing import Any
 
-import typer
 import akshare as ak
-app = typer.Typer(help="抓取 SHFE 日线数据并直接打印。")
+import typer
+
+from app.db import DEFAULT_DATABASE_URL
+from app.services import save_market_daily_rows
+
+app = typer.Typer(help="抓取 SHFE 日线数据并保存到数据库。")
 
 DEFAULT_MARKET = "SHFE"
 DEFAULT_SYMBOL = "CU"
@@ -21,6 +26,7 @@ DEFAULT_SYMBOL = "CU"
 
 class MarketCrawlerError(RuntimeError):
     """抓取或解析市场数据时抛出的错误。"""
+
 
 def _pick_first(row: dict[str, Any], *keys: str) -> Any:
     """按字段名顺序取值，忽略大小写。"""
@@ -126,6 +132,8 @@ def main(
     start_date: str = typer.Option(..., help="起始交易日，例如：2026-03-28"),
     end_date: str | None = typer.Option(None, help="结束交易日，默认等于 start_date"),
     symbol: str = typer.Option(DEFAULT_SYMBOL, help="品种代码，阶段一默认 CU"),
+    save: bool = typer.Option(True, "--save/--no-save", help="是否保存到数据库"),
+    db_url: str = typer.Option(DEFAULT_DATABASE_URL, help="SQLAlchemy 数据库 URL"),
     limit: int = typer.Option(20, min=1, help="最多打印多少条记录"),
     pretty: bool = typer.Option(True, help="是否格式化 JSON 输出"),
 ) -> None:
@@ -138,6 +146,10 @@ def main(
         raise typer.Exit(code=1) from exc
 
     typer.echo(f"rows: {len(rows)}")
+    if save:
+        saved_count = save_market_daily_rows(rows, database_url=db_url)
+        typer.echo(f"saved: {saved_count}")
+
     for row in rows[:limit]:
         typer.echo(json.dumps(row, ensure_ascii=False, indent=2 if pretty else None))
 

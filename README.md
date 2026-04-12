@@ -5,8 +5,9 @@
 当前状态：
 
 - 仓库仍处于初始化阶段
-- 当前已沉淀的内容主要是开发规范和阶段一字段文档
-- `FastAPI` / `SQLModel` / `Alembic` 项目骨架尚未落地
+- 已有 `market_daily` 的 SQLModel 表模型、schema、SQLite 入库服务
+- 已有 Typer 抓取命令，可从 AKShare 拉取 SHFE 日线并默认写入本地 SQLite
+- `FastAPI` / `Alembic` 项目骨架尚未落地
 
 阶段一规划：
 
@@ -16,6 +17,18 @@
 - CLI：Typer
 - ORM：SQLModel
 - 开发期数据库：SQLite
+
+抓取入库：
+
+```bash
+uv run python -m app.cli.market_crawler --start-date 2026-03-28
+```
+
+默认数据库为 `sqlite:///data/cu.db`。如只想打印样例、不写库：
+
+```bash
+uv run python -m app.cli.market_crawler --start-date 2026-03-28 --no-save
+```
 
 文档：
 
