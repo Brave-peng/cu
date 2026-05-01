@@ -1,0 +1,5 @@
+[2026-04-19 00:00:00+08:00] task=replace_with_task_id attempt=1 failed_check=replace_with_failed_check
+symptom: replace_with_failure_symptom
+root_cause: replace_with_current_suspected_root_cause
+action: replace_with_fix_action
+result: retry_pending

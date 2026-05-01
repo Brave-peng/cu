@@ -1,0 +1,7 @@
+interface:
+  display_name: "Document Review"
+  short_description: "Review docs for structure, density, and noise."
+  default_prompt: "Use $document-review to review this draft and return findings plus revision guidance only."
+
+policy:
+  allow_implicit_invocation: true

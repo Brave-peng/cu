@@ -1,0 +1,7 @@
+interface:
+  display_name: "Document Structure"
+  short_description: "Write dense main docs and split mixed docs cleanly."
+  default_prompt: "Use $document-structure to write or split this project document into a dense main doc and focused child docs."
+
+policy:
+  allow_implicit_invocation: true

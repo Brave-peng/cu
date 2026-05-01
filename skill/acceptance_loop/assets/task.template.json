@@ -1,0 +1,14 @@
+{
+  "task_id": "replace_with_task_id",
+  "target_name": "replace_with_target_name",
+  "task_type": "crawl",
+  "goal": "replace_with_goal",
+  "inputs": [
+    "replace_with_required_inputs"
+  ],
+  "done_when": [
+    "replace_with_machine_checkable_condition"
+  ],
+  "retry_limit": 3,
+  "created_at": "2026-04-19T00:00:00+08:00"
+}

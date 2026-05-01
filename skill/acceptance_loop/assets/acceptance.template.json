@@ -1,0 +1,9 @@
+{
+  "target_name": "replace_with_target_name",
+  "task_id": "replace_with_task_id",
+  "checks": {
+    "replace_with_check_key": "fail"
+  },
+  "overall_result": "fail",
+  "generated_at": "2026-04-19T00:00:00+08:00"
+}

@@ -46,3 +46,6 @@ Git Hook：
 - `skill/code_review`：代码审查助手
 - `skill/doc_review`：文档审查助手
 - `skill/folo_ai_frontend_digest`：从 Folo 的 `AI FrontEnd` 分类生成并发送 AI 日报
+- `skill/acceptance_loop`：验收驱动执行闭环
+- `skill/document_structure`：项目文档结构化与拆分
+- `skill/document_review`：项目文档审查与修订指引
