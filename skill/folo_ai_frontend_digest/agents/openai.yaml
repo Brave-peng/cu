@@ -1,0 +1,7 @@
+interface:
+  display_name: "Folo AI FrontEnd Digest"
+  short_description: "Build and send a filtered Folo AI digest."
+  default_prompt: "Use $folo-ai-frontend-digest to fetch the past 24 hours from the Folo AI FrontEnd category, keep all news items, filter arXiv papers, pick 5 new plus 5 classic papers, and send the final markdown through lark-cli."
+
+policy:
+  allow_implicit_invocation: true

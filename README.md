@@ -40,3 +40,9 @@ uv run python -m app.cli.market_crawler --start-date 2026-03-28 --no-save
 Git Hook：
 
 - 首次 clone 后执行 `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-git-hooks.ps1`
+
+技能：
+
+- `skill/code_review`：代码审查助手
+- `skill/doc_review`：文档审查助手
+- `skill/folo_ai_frontend_digest`：从 Folo 的 `AI FrontEnd` 分类生成并发送 AI 日报
